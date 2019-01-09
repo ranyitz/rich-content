@@ -27,6 +27,9 @@ Link.propTypes = {
   anchorTarget: PropTypes.string,
   relValue: PropTypes.string,
   settings: PropTypes.object,
+  href: PropTypes.string,
+  rel: PropTypes.string,
+  target: PropTypes.string,
 };
 
 export { Link as Component };
