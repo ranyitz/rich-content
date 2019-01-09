@@ -40,6 +40,8 @@ VideoViewer.propTypes = {
   controls: PropTypes.bool,
   width: PropTypes.string,
   height: PropTypes.string,
+  settings: PropTypes.object,
+  isMobile: PropTypes.bool,
 };
 
 VideoViewer.defaultProps = {
