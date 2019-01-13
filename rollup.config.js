@@ -99,7 +99,7 @@ if (process.env.NODE_ENV !== 'development') {
   plugins.push(
     uglify({
       mangle: false,
-      sourceMap: {
+      sourcemap: {
         filename: 'out.js',
         url: 'out.js.map'
       }
