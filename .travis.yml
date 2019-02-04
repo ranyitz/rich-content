@@ -5,10 +5,8 @@ install:
   - npm install
 jobs:
   include:
-    - stage: 'Build & Test'
+    - stage: 'Publish'
       script:
         - npm run build
         - npm test
-    - stage: 'Publish'
-      script:
         - npm run customPublish
