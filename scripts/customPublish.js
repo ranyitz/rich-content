@@ -85,6 +85,15 @@ function release(pkg) {
   }
 }
 
+function createNpmRc() {
+  execSync(`rm -f package-lock.json`);
+  const { NPM_EMAIL, NPM_TOKEN } = process.env;
+  const EOL = require('os').EOL;
+  const content = `email=${NPM_EMAIL}${EOL}//registry.npmjs.org/:_authToken=${NPM_TOKEN}${EOL}`;
+  const fs = require('fs');
+  fs.writeFileSync(`.npmrc`, content);
+}
+
 function publishPackages() {
   lernaPackages()
     .filter(p => !p.private)
@@ -136,6 +145,8 @@ function run() {
     console.log(chalk.yellow(`${skipReason} - skipping publish`));
     return false;
   }
+
+  createNpmRc();
   publishPackages();
   publishExamples();
 }
