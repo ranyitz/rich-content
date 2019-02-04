@@ -1,3 +1,14 @@
 language: node_js
 node_js:
   - 10
+install:
+  - npm install
+jobs:
+  include:
+    - stage: 'Build & Test'
+      script:
+        - npm test
+        - npm run build
+    - stage: 'Publish'
+      script:
+        - npm run customPublish
